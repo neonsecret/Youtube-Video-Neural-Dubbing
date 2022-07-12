@@ -6,3 +6,5 @@ run
 ```
 waitress-serve --call app:run_waitress
 ```
+
+If you want to use my work, please contact me and credit me in your project.
