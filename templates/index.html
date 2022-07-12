@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VideoLab</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href={{url_for('static', filename='css/style2.css')}}>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
+    <!-- top navigation -->
+    <div class="top">
+        <div class="nav-container">
+            <h1>Video Translator</h1>
+            <form action="/get_video" method="POST">
+            <input type="text" placeholder="Search" id="query" name="query" class="search">
+<!--            <button class="btn">Login</button>-->
+            </form>
+        </div>
+    </div>
+
+    <!-- main content -->
+    
+    <div class="flex-container">
+
+        <!-- left column -->
+        <div class="col-l">
+
+            <!-- this is a placeholder replace it with a real video -->
+            <iframe width="640" height="360" src="{{url}}" id="video" frameborder="0" allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            {% if url != "exit" %}
+            <script> document.getElementById("video").style.display = "block"; </script>
+            {% else %}
+            <script> document.getElementById("video").style.display = "none"; </script>
+            {% endif %}
+
+            <!-- video info -->
+            <div class="row">
+                <div class="start">
+                    <h1 >{{title}}</h1>
+                    <h3> {{view_count}} | Uploaded {{publish_time}}</h3>
+                    <div class="user">
+                        <img id="user-bio-pic" src={{pfp_name}} width="50px" height="50px" onclick="onClick(this)"><span class="user-name">{{channel_name}}</span>
+                        
+                        <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+                            <img class="w3-modal-content" id="img01" style="width:60%">
+                        </div>
+                    </div>
+                </div>
+                {% if url != "" %}
+                <form action="/translate" method="POST">
+                <button class="btn" onclick="$('#loading').show();">Translate!</button>
+                </form>
+                <div id="loading" style="display:none;"><img src="{{url_for('static', filename='assets/loading.gif' )}}" style="width: 70px; height: 50px;" alt="" />Loading!</div>
+                {% endif %}
+            </div>
+
+        </div>
+
+        <!-- right column -->
+        <div class="col-r">
+
+            <h3 class="sub-header">Suggested</h3>
+
+            <div class="video-small">
+            <iframe src="{{urls[1][0]}}" id="video2" allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+<!--                <form action="/get_video_url" method="POST">-->
+                <a href="/get_video" class="video-title" name="video-title">{{urls[1][1]}}</a>
+<!--                </form>-->
+            </div>
+            <div class="video-small">
+            <iframe src="{{urls[2][0]}}" id="video3" allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+<!--                <form action="/get_video_url" method="POST">-->
+                <a href="/get_video" class="video-title" name="video-title">{{urls[2][1]}}</a>
+<!--                </form>-->
+            </div>
+            <div class="video-small">
+            <iframe src="{{urls[3][0]}}" id="video4" allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+<!--                <form action="/get_video_url" method="POST">-->
+                <a href="/get_video" class="video-title" name="video-title">{{urls[3][1]}}</a>
+<!--                </form>-->
+            </div>
+            <div class="video-small">
+            <iframe src="{{urls[4][0]}}" id="video5" allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+<!--                <form action="/get_video_url" method="POST">-->
+                <a href="/get_vide" class="video-title" name="video-title">{{urls[4][1]}}</a>
+<!--                </form>-->
+            </div>
+
+        </div>
+        
+    </div>
+
+    <script src={{url_for('static', filename='js/script2.js' )}}></script>
+</body>
+</html>

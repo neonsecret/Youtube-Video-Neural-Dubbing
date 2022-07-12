@@ -1,0 +1,160 @@
+* {
+    padding: 0;
+    margin: 0;
+    border-radius: 5px;
+}
+
+body {
+    background-color: #f3f3f3;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.top {
+    background-color: #333;
+    height: 75px;
+    border-top: 5px solid rebeccapurple;
+    color: #fff;
+}
+
+.search {
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    width: 100%;
+    margin: 0 100px;
+}
+
+.search_full {
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    width: 100%;
+    margin: 0 200px;
+}
+
+.btn {
+    background-color: rebeccapurple;
+    color: #fff;
+    width: 120px;
+    height: 40px;
+    border: 2px solid #000;
+    box-shadow: 4px 4px #000;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.nav-container, .flex-container {
+    width: 1080px;
+    margin: 0 auto;
+    display: flex;
+}
+
+.nav-container {
+    justify-content: space-between;
+    align-items: center;
+    height: inherit;
+}
+
+.flex-container {
+    padding: 20px;
+    background-color: #fff;
+}
+
+.col-l {
+    flex: 2;
+}
+
+#video1 {
+    width: 100%;
+    height: auto;
+    border: 1px solid;
+}
+
+.col-r {
+    flex: 1;
+    margin-left: 20px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.user {
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+}
+
+.start h1 {
+    margin-bottom: 10px;
+}
+
+.start h3 {
+    color: #333;
+    font-weight: 400;
+}
+
+.avatar-s {
+    height: 64px;
+}
+
+.user-name {
+    margin-left: 10px;
+    color: rebeccapurple;
+    font-size: 1.2rem;
+    font-weight: 900;
+    font-size: 1.2rem;
+}
+
+.sub-header {
+    font-size: 1.5rem;
+    font-weight: 900;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #999;
+}
+
+.video-small {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+#video-next , #video2, #video3, #video4, #video5 {
+    width: 40%;
+    height: auto;
+    border: 1px solid;
+    margin-right: 10px;
+}
+
+.vid-s {
+    width: 170px;
+    margin-right: 10px;
+}
+
+.video-title {
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+.tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: white;
+    color: rebeccapurple;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    border: 1px solid rebeccapurple;
+}
+
+.user:hover .tooltiptext {
+    /* Position the tooltip
+    position: absolute;
+    z-index: 1;*/
+    visibility: visible;
+}
+
+img {
+    border-radius: 5px;
+    border: 1px solid rebeccapurple;
+}
