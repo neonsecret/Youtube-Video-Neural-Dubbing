@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VideoLab</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href={{url_for('static', filename='css/style_double.css')}}>
+    <link rel="stylesheet" href="../static/css/style_double.css">
+    <link href="https://vjs.zencdn.net/7.19.2/video-js.css" rel="stylesheet" />
+</head>
+<body>
+
+    <!-- top navigation -->
+    <div class="top">
+        <div class="nav-container">
+            <h1>Video Translator</h1>
+            <form action="/get_video" method="POST">
+            <input type="text" placeholder="Search" id="query" name="query" class="search">
+<!--            <button class="btn">Login</button>-->
+            </form>
+        </div>
+    </div>
+
+    <!-- main content -->
+    
+    <div class="flex-container">
+
+        <!-- left column -->
+        <div class="col-l">
+
+            <!-- this is a placeholder replace it with a real video -->
+            <iframe width="640" height="360" src="{{url}}" id="video" frameborder="0" allow="clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            {% if url != "exit" %}
+            <script> document.getElementById("video").style.display = "block"; </script>
+            {% else %}
+            <script> document.getElementById("video").style.display = "none"; </script>
+            {% endif %}
+
+            <!-- video info -->
+            <div class="row">
+                <div class="start">
+                    <h1 >{{title}}</h1>
+                    <h3> {{view_count}} | Uploaded {{publish_time}}</h3>
+                    <div class="user">
+                        <img id="user-bio-pic" src={{pfp_name}} width="50px" height="50px" onclick="onClick(this)"><span class="user-name">{{channel_name}}</span>
+                        
+                        <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+                            <img class="w3-modal-content" id="img01" style="width:60%">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-l">
+            <video width="640" height="360" id="video_translated" class="video-js" controls preload="auto" data-setup="{}">
+<!--        <video width="640" height="360" id="video_translated" loop onmouseover="onMouseHover(this)" onmouseleave="onMouseLeave(this)" onclick="onClickPlayNext(this, 0)">-->
+                <source src="../static/out/{{video_id}}.mp4" type="video/mp4">
+            </video>
+<!--            <span class="video-title">Playful Pomeranian Dogs</span>-->
+        </div>
+
+        
+    </div>
+
+    <script src={{url_for('static', filename='js/script2.js' )}}></script>
+    <script src="https://vjs.zencdn.net/7.19.2/video.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+/archive/
+/backend/cache/
+/backend/data/
+/backend/pretrained_models/
+/static/out/

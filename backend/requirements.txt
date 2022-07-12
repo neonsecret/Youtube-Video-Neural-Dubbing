@@ -1,0 +1,10 @@
+youtube_transcript_api
+soundfile
+pydub
+yt_dlp
+audio_effects
+transliterate
+numpy
+torch
+num2words
+transformers
