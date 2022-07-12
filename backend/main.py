@@ -111,7 +111,7 @@ done_init = False
 
 def query(filename):
     API_URL = "https://api-inference.huggingface.co/models/pyannote/speaker-diarization"
-    headers = {"Authorization": "Bearer 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"}
+    headers = {"Authorization": "Bearer **your_code**"}
     with open(filename, "rb") as f:
         data = f.read()
     response = requests.request("POST", API_URL, headers=headers, data=data)
